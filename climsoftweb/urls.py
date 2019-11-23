@@ -21,7 +21,5 @@ import main
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-
-    url(r'^$', main.views.menu, name='mainmenu'),
-
+    path('/', main.views.menu, name='mainmenu'),
 ]
