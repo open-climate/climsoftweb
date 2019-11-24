@@ -21,5 +21,5 @@ from main import views
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('/', views.menu, name='mainmenu'),
+    path('/', views.mainmenu, name='mainmenu'),
 ]
