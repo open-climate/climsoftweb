@@ -1,16 +1,27 @@
+{% load static %}
+
     <html>
     <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style type="text/css">
-        body { 
-          background: #fff url("pixabay_light-1282314_1920.jpg");
-          background-attachment: fixed;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-        
+
+          /* Once the viewport becomes 576px wide or more use the background image and content within an obvious box */
+          @media(min-width:576px) {
+              body {
+                  background: #fff url('{% static "pixabay_light-1282314_1920.jpg" %}');
+                  background-attachment: fixed;
+                  background-repeat: no-repeat;
+                  background-size: cover;
+              }
+
+              .pagecontent {
+                  margin-top: 2rem!important;
+                  border-radius: .5rem!important;
+              }
+          }
+
         a, a:hover, a:focus, a:active {
           color: inherit;
           text-decoration: none;
@@ -40,68 +51,86 @@
         }
         
         .mainmenu {
-          margin-top: 4rem!important;
           background-color: #FAF0E6;
-          width: 600px;
-          margin:0 auto;
           border: 1px solid black;
-          border-radius: .5rem!important;
         }
 
         .keyentry {
-          margin-top: 4rem!important;
           background-color: #FFF;
           width: 800px;
-          margin:0 auto;
           border: 1px solid black;
-          border-radius: .5rem!important;
         }
+
+
 
       </style>
     </head>
-    <body>  
-              
-        <div class="stickyheader">
-            <div class="dropdown float-right">
-              <button class="btn mt-2 mr-3" type="button" id="btnLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index:100">
+  <a class="navbar-brand" href="/">Climsoft Web &raquo;</a>
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active dropdown">
+        <a class="nav-link" href="#"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            id="mnuInput">
+          Input
+        </a>
+        <div class="dropdown-menu" aria-labelledby="mnuInput">
+          <a class="dropdown-item" id="mnuInputKeyEntry" href="{% url 'keyentry' %}">Key Entry</a>
+        </div>
+      </li>
+      <li class="nav-item active dropdown">
+        <a class="nav-link" href="#"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+           id="mnuAdministration">
+          Administration
+        </a>
+        <div class="dropdown-menu" aria-labelledby="mnuAdministration">
+          <a class="dropdown-item" id="UserAdminToolStripMenuItem" href="/login">User Admin</a>
+          <a class="dropdown-item" id="MetadataToolStripMenuItem" href="#">Metadata</a>
+          <a class="dropdown-item" id="PasswordToolStripMenuItem" href="#">Change Password</a>
+        </div>
+      </li>
+    </ul>
+
+  <div class="dropdown float-right">
+          <button class="btn mt-2 mr-3" type="button" id="btnLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-globe fa-1-5x text-darkslategrey"></i>
-              </button> 
+              </button>
               <div class="dropdown-menu" aria-labelledby="btnLanugage">
                 <a class="dropdown-item" href="#">English</a>
               </div>
-            </div>
-            
-            <a class="lead float-left ml-3 mt-2" href="/">Climsoft Web &raquo;</a>
-            
-            <div class="dropdown float-left">
-              <button class="btn pt-2 ml-3 lead" type="button" id="mnuInput" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Input
-              </button> 
-              <div class="dropdown-menu" aria-labelledby="mnuInput">
-                <a class="dropdown-item" href="#" id="mnuInputKeyEntry">Key Entry</a>
-              </div>
-            </div>
-            
-            <div class="dropdown float-left">
-              <button class="btn pt-2 ml-3 lead" type="button" id="mnuAdministration" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Administration
-              </button> 
-              <div class="dropdown-menu" aria-labelledby="mnuAdministration">
-                <a class="dropdown-item" href="#" id="UserAdminToolStripMenuItem">User Admin</a>
-                <a class="dropdown-item" href="#" id="MetadataToolStripMenuItem">Metadata</a>
-                <a class="dropdown-item" href="#" id="PasswordToolStripMenuItem">Change Password</a>
-              </div>
-            </div>
-            
-        </div>
+    </div>
+
+  </div>
+</nav>
 
 
-        
+        {% block base_content %}{% endblock %}
 
         
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
+
+<script>
+    $(document).ready(function () {
+  $('.second-button').on('click', function () {
+
+    $('.animated-icon2').toggleClass('open');
+  });
+});
+
+    </script>
 </body>
 </html>

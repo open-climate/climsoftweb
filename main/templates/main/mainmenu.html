@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base_content %}
+
+    <div class="container mainmenu pagecontent">
+            <div class="panel panel-default">
+              <div class="panel-body">
+
+                <h3 class="text-center pt-3">Welcome</h3><!-- frmMainMenu.Panel1.Label11 -->
+
+
+                <div class="row pt-3">
+                  <div class="col-sm-6 text-center">
+                    <a id="Label1" href="{% url 'keyentry' %}"><!-- frmMainMenu.Panel1.Label1 -->
+                        <img src='{% static "data_entry.png" %}'/><br/>
+                        Data Entry
+                    </a>
+                  </div>
+                  <div class="col-sm-6 text-center">
+                    <a id="Label8" href=""><!-- frmMainMenu.Panel1.Label8 -->
+                        <img src='{% static "metadata_information.png" %}'/><br/>
+                        Metadata Information
+                    </a>
+                  </div>
+                </div>
+                <div class="row pt-3">
+                  <div class="col-sm-6 text-center">
+
+                    <a id="Label7" href=""><!-- frmMainMenu.Panel1.Label7 -->
+                    <img src='{% static "user_administration.png" %}'/><br/>
+                    Users Administration
+                    </a>
+                  </div>
+
+                </div>
+
+
+                <br/><br/><br/><br/><br/>
+
+              </div>
+            </div>     
+
+    </div>
+
+{% endblock %}
