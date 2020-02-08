@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base_content %}
+
+    <div class="container whitepage rounded pagecontent">
+            <div class="panel panel-default">
+              <div class="panel-body">
+              
+                <h4 class="text-center pt-3">Hourly Data</h4><!-- form_hourly.Text -->{# formHourly.vb #}
+
+                <div class="row pt-3">
+                    <div class="col-sm-6 text-center">
+                        Station
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        Element
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-sm-6 text-center">
+                        Year - Month - Day
+                    </div>
+                </div>
+
+              <!-- Enable synoptic hours - assign same value to all obs ... -->
+
+                <div class="row pt-3">
+                    <div class="col-sm-6 text-center">
+                        <label style="display:block">00&nbsp <input/></label><br/>
+                        <label style="display:block">01 &nbsp <input/></label><br/>
+                        01 <br/>
+                        02 <br/>
+                        03 <br/>
+                        04 <br/>
+                        05 <br/>
+                        06 <br/>
+                        07 <br/>
+                        08 <br/>
+                        09 <br/>
+                        10 <br/>
+                        11 <br/>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        12 <br/>
+                        13 <br/>
+                        14 <br/>
+                        15 <br/>
+                        16 <br/>
+                        17 <br/>
+                        18 <br/>
+                        19 <br/>
+                        20 <br/>
+                        21 <br/>
+                        22 <br/>
+                        23 <br/>
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-sm-6 text-center">
+                        <!-- Navigation -->
+                    </div>
+                </div>
+
+                <br/><br/><br/><br/><br/>
+
+              </div>
+            </div>     
+
+    </div>
+
+{% endblock %}

@@ -16,12 +16,35 @@ Including another URLconf
 #from django.contrib import admin
 from django.urls import path
 
+from accounts.forms import LoginForm
 from main import views
-from accounts.views import LoginUser
+from accounts.views import LoginUser, LogoutUser
+
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
+
     path('', views.mainmenu, name='mainmenu'),
-    path('login/', LoginUser.as_view(), name='login_user'),
+
+    path('login/', name='login', view=LoginUser.as_view(
+        authentication_form=LoginForm,
+        template_name='accounts/login.html',
+        extra_context={'databases': ['climsoft_database']},
+    )),
+
+    path('logout/', name='logout_user', view=LogoutUser.as_view(
+        next_page='/login',
+    )),
+
+    path('user-admin/', views.user_admin, name='user_admin'),
+    path('user-profile/', views.user_profile, name='user_profile'),
+    path('change-password/', views.change_password, name='change_password'),
+
+    path('language/', views.language, name='language'),
+
     path('keyentry/', views.keyentry, name='keyentry'),
+    path('keyentry/hourly', views.keyentry_hourly, name='keyentry_hourly'),
+
+    path('metadata/', views.metadata, name='metadata'),
+
 ]

@@ -3,7 +3,7 @@
 
 {% block base_content %}
 
-    <div class="container mainmenu pagecontent">
+    <div class="container mainmenu rounded pagecontent">
             <div class="panel panel-default">
               <div class="panel-body">
 
@@ -18,7 +18,7 @@
                     </a>
                   </div>
                   <div class="col-sm-6 text-center">
-                    <a id="Label8" href=""><!-- frmMainMenu.Panel1.Label8 -->
+                    <a id="Label8" href="{% url 'metadata' %}"><!-- frmMainMenu.Panel1.Label8 -->
                         <img src='{% static "metadata_information.png" %}'/><br/>
                         Metadata Information
                     </a>
@@ -27,7 +27,7 @@
                 <div class="row pt-3">
                   <div class="col-sm-6 text-center">
 
-                    <a id="Label7" href=""><!-- frmMainMenu.Panel1.Label7 -->
+                    <a id="Label7" href="{% url 'user_admin' %}"><!-- frmMainMenu.Panel1.Label7 -->
                     <img src='{% static "user_administration.png" %}'/><br/>
                     Users Administration
                     </a>

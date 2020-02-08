@@ -4,15 +4,14 @@
 
 
 {% block base_content %}
-    <form class="centercenter">
-
+    <form class="centercenter" method="post">
+        {% csrf_token %}
         <div class="form-group">
           <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fa fa-user"></i></span>
+              <span class="input-group-text"><i class="fa fa-user"></i></span>
             </div>
-              {{ login_form.username | add_class="form_control" }}
-              <!--<input type="text" class="form-control" placeholder="username">-->
+            {{ form.username | add_class:"form-control" | attr:"placeholder:username" }}
           </div>
         </div>
         <div class="form-group">
@@ -20,7 +19,7 @@
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-lock"></i></span>
               </div>
-            <input type="password" class="form-control" placeholder="password">
+            {{ form.password | add_class:"form-control" | attr:"placeholder:password" }}
           </div>
         </div>
         <div class="form-group">
@@ -29,7 +28,9 @@
                 <span class="input-group-text"><i class="fa fa-database"></i></span>
             </div>
             <select class="form-control form-control-lg">
-                <option>climsoft_database</option>
+                {% for database in databases %}
+                    <option>{{ database }}</option>
+                {% endfor %}
             </select>
           </div>
         </div>

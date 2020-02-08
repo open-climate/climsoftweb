@@ -3,12 +3,35 @@
 
 {% block base_content %}
 
-    <div class="container keyentry pagecontent">
+    <div class="container whitepage rounded pagecontent">
             <div class="panel panel-default">
               <div class="panel-body">
               
+                <h4 class="text-center pt-3">Data Key Entry Forms</h4><!-- frmKeyEntry.Text -->{# frmDataEntry.vb #}
+                <br/><br/>
 
-                <br/><br/><br/><br/><br/>
+                <table class="table" style="width: 80%; border-radius: .5rem!important; margin: 0px auto;">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="mobile-hide" style="display: none">Form Name</th><!-- lstViewForms.Columns.0.Text -->
+                      <th scope="col">Form Description</th><!-- lstViewForms.Columns.1.Text -->
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="mobile-hide" style="display: none">form_hourly</th>
+                      <td>Hourly data</td>
+                      <td>
+                        <form action="{% url 'keyentry_hourly' %}" method="get">
+                           <input type="submit" class="btn btn-success" value="Select"/>
+                        </form>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                  <br/><br/><br/>
 
               </div>
             </div>     

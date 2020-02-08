@@ -25,7 +25,7 @@ SECRET_KEY = '+4v)$a05nq*ionj*zdgm0&0vqd0etrjb7np7r=&+zvvb-7pj6g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.161', 'dev3.aqx.io']
+ALLOWED_HOSTS = ['192.168.1.161', 'dev3.climsoft.org']
 
 
 # Application definition
@@ -80,7 +80,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+#    'climsoft': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'mariadb_climsoft_test_db_v4', # os.getenv('DJANGO_DB_NAME'),
+#        'USER': 'admin', # os.getenv('DJANGO_DB_USER'),
+#        'PASSWORD': 'admin', # os.getenv('mysql_instance_password'),
+#        'HOST': '192.168.1.184',
+#        'PORT': '3306',
+#    },
 }
 
 
@@ -125,3 +133,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/'
