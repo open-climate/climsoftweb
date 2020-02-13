@@ -3,7 +3,7 @@ from climsoftweb.settings.base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.1.161']
+ALLOWED_HOSTS = ['*']
 
 
 # INSTALLED_APPS += ('debug_toolbar',)
