@@ -132,7 +132,13 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.getenv('STATIC_ROOT')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    ## os.path.join(BASE_DIR, "static"),
+    # BASE_DIR is the wsgi.py location (a level below the settings directory).
+    #  The youtube-audio-dl example application has the static files directory
+    #  there, but in doing so (and not including this location in INSTALLED_APPS,
+    #  it's not clear that the files would be found by runserver.
+    #  We use the standard location instead.
+    os.path.join(os.path.dirname(BASE_DIR), "static"),
 ]
 
 LOGIN_URL = '/login/'
