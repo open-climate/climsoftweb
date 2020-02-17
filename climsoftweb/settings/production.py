@@ -5,4 +5,4 @@ from climsoftweb.settings.base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['dev3.climsoft.org']
+ALLOWED_HOSTS = ['test.climsoft.org']
