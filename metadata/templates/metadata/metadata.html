@@ -12,36 +12,73 @@
   <li class="nav-item">
     <a class="nav-link" id="element-tab" data-toggle="tab" href="#element" role="tab" aria-controls="profile" aria-selected="false">Element</a>
   </li>
+
+  <!--
   <li class="nav-item">
     <a class="nav-link" id="station-element-tab" data-toggle="tab" href="#station-element" role="tab" aria-controls="contact" aria-selected="false">Station Element</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="instrument-tab" data-toggle="tab" href="#instrument" role="tab" aria-controls="contact" aria-selected="false">Instrument</a>
   </li>
+  -->
 </ul>
 </div>
 
 <div class="tab-content container whitepage rounded-bottom border-top-none" id="myTabContent">
     <div class="tab-pane fade show active" id="station" role="tabpanel" aria-labelledby="station-tab">
         <div class="panel panel-default">
-              <div class="panel-body">
+            <div class="panel-body">
 
-                <h4 class="text-center pt-3">Station</h4><!-- frm ... -->
+                {# <h4 class="text-center pt-3">Stations</h4><!-- frm ... --> #}
+                {# <br/><br/> #}
+
+                <br/>
+
+                <label class="float-right">Select station <select id="stationChoice">
+                    <option value="">Loading ...</option>
+                </select></label>
+
                 <br/><br/>
 
-                  <br/><br/><br/>
+                <div class="container border" style="position: relative">
+                    <div style="position:absolute; top:-20; left:10; padding:5px; background-color: white">Station Details</div>
 
-              </div>
+                    <div id="stationData"><center>Please wait...</center></div>
+
+                    <br/>
+
+                </div>
+
+                <br/><br/><br/>
+
+            </div>
         </div>
     </div>
     <div class="tab-pane fade" id="element" role="tabpanel" aria-labelledby="element-tab">
         <div class="panel panel-default">
               <div class="panel-body">
 
-                <h4 class="text-center pt-3">Element</h4><!-- frm ... -->
+                {# <h4 class="text-center pt-3">Element</h4><!-- frm ... --> #}
+                {# <br/><br/> #}
+
+                <br/>
+
+                <label class="float-right">Select element <select id="elementChoice">
+                    <option value="">Loading ...</option>
+                </select></label>
+
                 <br/><br/>
 
-                  <br/><br/><br/>
+                <div class="container border" style="position: relative">
+                    <div style="position:absolute; top:-20; left:10; padding:5px; background-color: white">Observation Elements</div>
+
+                    <div id="elementData"><center>Please wait...</center></div>
+
+                    <br/>
+
+                </div>
+
+                <br/><br/><br/>
 
               </div>
         </div>
@@ -74,7 +111,27 @@
 </div>
 
 
+<script>
+    /* FIXME: replace window.onload with sekaizai. Add <form> tags and {% csrf_token %} */
 
+    window.onload = function() {
+
+        $( "#stationChoice" ).load( "/metadata/station/select/", function() {
+            $( "#stationData" ).load( "/metadata/station/" + this.value );
+            $( "#stationChoice" ).change( function() {
+                $( "#stationData" ).load( "/metadata/station/" + this.value );
+            });
+        });
+
+        $( "#elementChoice" ).load( "/metadata/element/select/", function() {
+            $( "#elementData" ).load( "/metadata/element/" + this.value );
+            $( "#elementChoice" ).change( function() {
+                $( "#elementData" ).load( "/metadata/element/" + this.value );
+            });
+        });
+
+    };
+</script>
 
 
 {% endblock %}

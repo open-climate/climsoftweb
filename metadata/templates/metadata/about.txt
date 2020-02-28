@@ -1,0 +1,3 @@
+Django's class based views use...
+    <modelname>_list.html and <modelname>_form.html
+... by default if no other template_name is supplied to `as_view()` in urls.py

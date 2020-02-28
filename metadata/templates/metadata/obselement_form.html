@@ -1,0 +1,184 @@
+{% load widget_tweaks %}
+
+<form>
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+
+                    {# Temporary use of a table to give all labels the same width and ensure label stays with field #}
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="{{ form.elementid.id_for_label }}">{{ form.elementid.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.elementid | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.elementid.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.elementid.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.abbreviation.id_for_label }}">{{ form.abbreviation.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.abbreviation | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.abbreviation.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.abbreviation.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.elementname.id_for_label }}">{{ form.elementname.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.elementname | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.elementname.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.elementname.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.description | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.description.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.description.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.elementscale.id_for_label }}">{{ form.elementscale.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.elementscale | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.elementscale.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.elementscale.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.upperlimit.id_for_label }}">{{ form.upperlimit.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.upperlimit | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.upperlimit.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.upperlimit.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.lowerlimit.id_for_label }}">{{ form.lowerlimit.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.lowerlimit | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.lowerlimit.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.lowerlimit.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.units.id_for_label }}">{{ form.units.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.units | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.units.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.units.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.elementtype.id_for_label }}">{{ form.elementtype.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.elementtype | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.elementtype.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.elementtype.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.selected.id_for_label }}">{{ form.selected.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.selected | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.selected.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.selected.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.qctotalrequired.id_for_label }}">{{ form.qctotalrequired.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.qctotalrequired | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.qctotalrequired.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.qctotalrequired.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    {# This column is not used #}
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</form>

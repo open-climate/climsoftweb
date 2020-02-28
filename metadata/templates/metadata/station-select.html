@@ -1,0 +1,5 @@
+{% if metadata_list %}
+    {% for item in metadata_list %}
+        <option value="{{ item.stationid }} ">{{ item.stationname }}</option>
+    {% endfor %}
+{% endif %}

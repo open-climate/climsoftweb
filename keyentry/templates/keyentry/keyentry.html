@@ -23,11 +23,32 @@
                       <th scope="row" class="mobile-hide" style="display: none">form_hourly</th>
                       <td>Hourly data</td>
                       <td>
-                        <form action="{% url 'keyentry_hourly' %}" method="get">
+                        <form action="{% url 'keyentry:form_hourly' %}" method="get" class="mb-0">
                            <input type="submit" class="btn btn-success" value="Select"/>
                         </form>
                       </td>
                     </tr>
+
+                    <tr>
+                      <th scope="row" class="mobile-hide" style="display: none">form_daily2</th>
+                      <td>Daily data for the whole month</td>
+                      <td>
+                        <form action="{% url 'keyentry:form_daily2' %}" method="get" class="mb-0">
+                           <input type="submit" class="btn btn-success" value="Select"/>
+                        </form>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row" class="mobile-hide" style="display: none">form_monthly</th>
+                      <td>Monthly data</td>
+                      <td>
+                        <form action="{% url 'keyentry:form_monthly' %}" method="get" class="mb-0">
+                           <input type="submit" class="btn btn-success" value="Select"/>
+                        </form>
+                      </td>
+                    </tr>
+
                   </tbody>
                 </table>
 

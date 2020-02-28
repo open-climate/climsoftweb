@@ -169,7 +169,7 @@
               Input
             </a>
             <div class="dropdown-menu" aria-labelledby="mnuInput">
-              <a class="dropdown-item" id="mnuInputKeyEntry" href="{% url 'keyentry' %}">Key Entry</a>
+              <a class="dropdown-item" id="mnuInputKeyEntry" href="{% url 'keyentry:keyentry' %}">Key Entry</a>
             </div>
           </li>
           <li class="nav-item active dropdown">
@@ -180,7 +180,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="mnuAdministration">
               <a class="dropdown-item" id="UserAdminToolStripMenuItem" href="{% url 'user_admin' %}">User Admin</a>
-              <a class="dropdown-item" id="MetadataToolStripMenuItem" href="{% url 'metadata' %}">Metadata</a>
+              <a class="dropdown-item" id="MetadataToolStripMenuItem" href="{% url 'metadata:metadata' %}">Metadata</a>
               <a class="dropdown-item" id="PasswordToolStripMenuItem" href="{% url 'change_password' %}">Change Password</a>
             </div>
           </li>
@@ -198,9 +198,9 @@
         </button>
         {% if user.is_authenticated %}
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="btnLanugage">
-                <li><a class="dropdown-item" href="{% url 'user_profile' %}">User Profile</a></li>
-                <li><a class="dropdown-item" href="{% url 'language' %}">Language</a></li>
-                <li class="divider-fixed"></li>
+                <!--<li><a class="dropdown-item" href="{% url 'user_profile' %}">User Profile</a></li>-->
+                <!--<li><a class="dropdown-item" href="{% url 'language' %}">Language</a></li>-->
+                <!--<li class="divider-fixed"></li>-->
                 <li><a class="dropdown-item" href="{% url 'logout_user' %}">Logout</a></li>
             </ul>
         {% else %}
@@ -214,8 +214,9 @@
 
         {% block base_content %}{% endblock %}
 
+    <br/>
         
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 

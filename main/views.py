@@ -6,22 +6,6 @@ from django.shortcuts import render
 def mainmenu(request):
     return render(request, 'main/mainmenu.html', {})
 
-
-@login_required
-def keyentry(request):
-    return render(request, 'main/keyentry.html', {})
-
-
-@login_required
-def keyentry_hourly(request):
-    return render(request, 'main/keyentry_hourly.html', {})
-
-
-@login_required
-def metadata(request):
-    return render(request, 'main/metadata.html', {})
-
-
 @login_required
 def user_admin(request):
     return render(request, 'main/user_admin.html', {})

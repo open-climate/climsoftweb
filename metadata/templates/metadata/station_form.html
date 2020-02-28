@@ -1,0 +1,286 @@
+{% load widget_tweaks %}
+
+<form>
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+
+                    {# Temporary use of a table to give all labels the same width and ensure label stays with field #}
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="{{ form.stationid.id_for_label }}">{{ form.stationid.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.stationid | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.stationid.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.stationid.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.stationname.id_for_label }}">{{ form.stationname.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.stationname | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.stationname.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.stationname.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.latitude.id_for_label }}">{{ form.latitude.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.latitude | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.latitude.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.latitude.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+
+                        </tr>
+                            <td>
+                                <label for="{{ form.longitude.id_for_label }}">{{ form.longitude.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.longitude | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.longitude.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.longitude.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        <tr>
+                            <td>
+                                <label for="{{ form.elevation.id_for_label }}">{{ form.elevation.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.elevation | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.elevation.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.elevation.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    {# This bootstrap column is intentionally empty #}
+                </div>
+
+            </div>
+
+            <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+
+                    {# Temporary use of a table to give all labels the same width and ensure label stays with field #}
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="{{ form.wmoid.id_for_label }}">{{ form.wmoid.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.wmoid | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.wmoid.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.wmoid.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.icaoid.id_for_label }}">{{ form.icaoid.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.icaoid | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.icaoid.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.icaoid.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.country | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.country.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.country.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.authority.id_for_label }}">{{ form.authority.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.authority | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.authority.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.authority.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.adminregion.id_for_label }}">{{ form.adminregion.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.adminregion | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.adminregion.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.adminregion.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.drainagebasin.id_for_label }}">{{ form.drainagebasin.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.drainagebasin | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.drainagebasin.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.drainagebasin.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="col-sm-6 text-center">
+
+                    {# Temporary use of a table to give all labels the same width and ensure label stays with field #}
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="{{ form.qualifier.id_for_label }}">{{ form.qualifier.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.qualifier | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.qualifier.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.qualifier.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.openingdatetime.id_for_label }}">{{ form.openingdatetime.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.openingdatetime | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.openingdatetime.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.openingdatetime.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.closingdatetime.id_for_label }}">{{ form.closingdatetime.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.closingdatetime | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.closingdatetime.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.closingdatetime.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.geolocationmethod.id_for_label }}">{{ form.geolocationmethod.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.geolocationmethod | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.geolocationmethod.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.geolocationmethod.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.geolocationaccuracy.id_for_label }}">{{ form.geolocationaccuracy.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.geolocationaccuracy | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.geolocationaccuracy.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.geolocationaccuracy.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="{{ form.stationoperational.id_for_label }}">{{ form.stationoperational.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.stationoperational | add_class:"form-control" | attr:"readonly:readonly" }}
+
+                                {% if form.stationoperational.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.stationoperational.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</form>

@@ -14,11 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 #from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from accounts.forms import LoginForm
-from main import views
 from accounts.views import LoginUser, LogoutUser
+from main import views
 
 
 urlpatterns = [
@@ -29,22 +29,20 @@ urlpatterns = [
     path('login/', name='login', view=LoginUser.as_view(
         authentication_form=LoginForm,
         template_name='accounts/login.html',
-        extra_context={'databases': ['climsoft_database']},
+        extra_context={'databases': ['inam_climsoftweb_db']},
     )),
 
     path('logout/', name='logout_user', view=LogoutUser.as_view(
         next_page='/login',
     )),
 
+    # main
     path('user-admin/', views.user_admin, name='user_admin'),
     path('user-profile/', views.user_profile, name='user_profile'),
     path('change-password/', views.change_password, name='change_password'),
-
     path('language/', views.language, name='language'),
 
-    path('keyentry/', views.keyentry, name='keyentry'),
-    path('keyentry/hourly', views.keyentry_hourly, name='keyentry_hourly'),
-
-    path('metadata/', views.metadata, name='metadata'),
-
+    # apps
+    path('keyentry/', include('keyentry.urls')),
+    path('metadata/', include('metadata.urls')),
 ]

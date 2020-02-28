@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'main',
     'accounts',
+    'main',
+    'keyentry.apps.KeyentryConfig',
+    'metadata.apps.MetadataConfig',
 ]
 
 MIDDLEWARE = [
@@ -78,17 +80,13 @@ WSGI_APPLICATION = 'climsoftweb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DATABASE_NAME', 'climsoftweb'),
+        'USER': os.getenv('DATABASE_USER', 'climsoftweb'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password'),
+        'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
+        'PORT': os.getenv('DATABASE_PORT', '5432'),
     },
-#    'climsoft': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'mariadb_climsoft_test_db_v4', # os.getenv('DJANGO_DB_NAME'),
-#        'USER': 'admin', # os.getenv('DJANGO_DB_USER'),
-#        'PASSWORD': 'admin', # os.getenv('mysql_instance_password'),
-#        'HOST': '192.168.1.184',
-#        'PORT': '3306',
-#    },
 }
 
 
