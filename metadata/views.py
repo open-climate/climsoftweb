@@ -12,16 +12,16 @@ class Metadata(LoginRequiredMixin, generic.TemplateView):
 class MetadataList(LoginRequiredMixin, generic.ListView):
     context_object_name = 'metadata_list'
     template_name = None  # defaults to '{appname}/{modelname}_list.html
+    order_by = None
 
     def get_queryset(self):
-        return self.model.objects.all()
+        return self.model.objects.all().order_by(self.order_by) if self.order_by else self.model.objects.all()
 
 
 # view for the station entry page
 class MetadataCreate(LoginRequiredMixin, CreateView):
     # the fields mentioned below become the entry rows in the generated form
     fields = '__all__'
-
 
 
 class MetadataRead(LoginRequiredMixin, UpdateView):
@@ -47,7 +47,6 @@ class MetadataUpdate(LoginRequiredMixin, UpdateView):
     fields = '__all__'
 
     # success_url ="/"
-
 
 
 # view for deleting a station entry

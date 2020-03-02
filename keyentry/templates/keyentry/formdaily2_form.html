@@ -1,0 +1,106 @@
+{% load widget_tweaks %}
+
+<form>
+    {% csrf_token %}
+
+    {{ form.id }} {{ form.stationid.as_hidden }} {{ form.elementid.as_hidden }}
+    {{ form.yyyy.as_hidden }} {{ form.mm.as_hidden }}
+    {{ form.hh.as_hidden }}
+
+    {{ form.non_field_errors }}
+
+    <div class="panel panel-default">
+
+        <br/>
+        <div style="float: right">
+            <div style="display:inline-block">
+                <label style="width:120px;">{{ form.temperatureunits.label }}</label><br/>
+                {% render_field form.temperatureunits style="width:80px" %}
+            </div>
+            <div style="display:inline-block">
+                <label style="width:120px;">{{ form.precipunits.label }}</label><br/>
+                {% render_field form.precipunits style="width:80px;" %}
+            </div>
+            <div style="display:inline-block">
+                <label style="width:120px;">{{ form.cloudheightunits.label }}</label><br/>
+                {% render_field form.cloudheightunits style="width:80px;" %}
+            </div>
+            <div style="display:inline-block">
+                <label style="width:120px;">{{ form.visunits.label }}</label><br/>
+                {% render_field form.visunits style="width:80px;" %}
+            </div>
+        </div>
+        <br/><br/><br/>
+
+        <div class="panel-body" style="clear: both">
+            <div class="row pt-3">
+                <div class="col-sm-4">
+                    <table>
+                        <tr>
+                            <td style="text-align: center"><label>Day</label></td>
+                            <td style="text-align: center"><label>Value</label></td>
+                            <td style="text-align: center"><label>Flag</label></td>
+                            <td style="text-align: center"><label>Period</label></td>
+                        </tr>
+                        <tr><td><label>01</label></td><td>{% render_field form.day01 style="width:60px" %}</td><td>{{ form.flag01 }}</td><td>{% render_field form.period01 style="width:60px" %}</td></tr>
+                        <tr><td><label>02</label></td><td>{% render_field form.day02 style="width:60px" %}</td><td>{{ form.flag02 }}</td><td>{% render_field form.period02 style="width:60px" %}</td></tr>
+                        <tr><td><label>03</label></td><td>{% render_field form.day03 style="width:60px" %}</td><td>{{ form.flag03 }}</td><td>{% render_field form.period03 style="width:60px" %}</td></tr>
+                        <tr><td><label>04</label></td><td>{% render_field form.day04 style="width:60px" %}</td><td>{{ form.flag04 }}</td><td>{% render_field form.period04 style="width:60px" %}</td></tr>
+                        <tr><td><label>05</label></td><td>{% render_field form.day05 style="width:60px" %}</td><td>{{ form.flag05 }}</td><td>{% render_field form.period05 style="width:60px" %}</td></tr>
+                        <tr><td><label>06</label></td><td>{% render_field form.day06 style="width:60px" %}</td><td>{{ form.flag06 }}</td><td>{% render_field form.period06 style="width:60px" %}</td></tr>
+                        <tr><td><label>07</label></td><td>{% render_field form.day07 style="width:60px" %}</td><td>{{ form.flag07 }}</td><td>{% render_field form.period07 style="width:60px" %}</td></tr>
+                        <tr><td><label>08</label></td><td>{% render_field form.day08 style="width:60px" %}</td><td>{{ form.flag08 }}</td><td>{% render_field form.period08 style="width:60px" %}</td></tr>
+                        <tr><td><label>09</label></td><td>{% render_field form.day09 style="width:60px" %}</td><td>{{ form.flag09 }}</td><td>{% render_field form.period09 style="width:60px" %}</td></tr>
+                        <tr><td><label>10</label></td><td>{% render_field form.day10 style="width:60px" %}</td><td>{{ form.flag10 }}</td><td>{% render_field form.period10 style="width:60px" %}</td></tr>
+                    </table>
+                </div>
+
+                <div class="col-sm-4">
+                    <table>
+                        <tr>
+                            <td style="text-align: center"><label>Day</label></td>
+                            <td style="text-align: center"><label>Value</label></td>
+                            <td style="text-align: center"><label>Flag</label></td>
+                            <td style="text-align: center"><label>Period</label></td>
+                        </tr>
+                        <tr><td><label>11</label></td><td>{% render_field form.day11 style="width:60px" %}</td><td>{{ form.flag11 }}</td><td>{% render_field form.period11 style="width:60px" %}</td></tr>
+                        <tr><td><label>12</label></td><td>{% render_field form.day12 style="width:60px" %}</td><td>{{ form.flag12 }}</td><td>{% render_field form.period12 style="width:60px" %}</td></tr>
+                        <tr><td><label>13</label></td><td>{% render_field form.day13 style="width:60px" %}</td><td>{{ form.flag13 }}</td><td>{% render_field form.period13 style="width:60px" %}</td></tr>
+                        <tr><td><label>14</label></td><td>{% render_field form.day14 style="width:60px" %}</td><td>{{ form.flag14 }}</td><td>{% render_field form.period14 style="width:60px" %}</td></tr>
+                        <tr><td><label>15</label></td><td>{% render_field form.day15 style="width:60px" %}</td><td>{{ form.flag15 }}</td><td>{% render_field form.period15 style="width:60px" %}</td></tr>
+                        <tr><td><label>16</label></td><td>{% render_field form.day16 style="width:60px" %}</td><td>{{ form.flag16 }}</td><td>{% render_field form.period16 style="width:60px" %}</td></tr>
+                        <tr><td><label>17</label></td><td>{% render_field form.day17 style="width:60px" %}</td><td>{{ form.flag17 }}</td><td>{% render_field form.period17 style="width:60px" %}</td></tr>
+                        <tr><td><label>18</label></td><td>{% render_field form.day18 style="width:60px" %}</td><td>{{ form.flag18 }}</td><td>{% render_field form.period18 style="width:60px" %}</td></tr>
+                        <tr><td><label>19</label></td><td>{% render_field form.day19 style="width:60px" %}</td><td>{{ form.flag19 }}</td><td>{% render_field form.period19 style="width:60px" %}</td></tr>
+                        <tr><td><label>20</label></td><td>{% render_field form.day20 style="width:60px" %}</td><td>{{ form.flag20 }}</td><td>{% render_field form.period20 style="width:60px" %}</td></tr>
+                    </table>
+                </div>
+
+                <div class="col-sm-4">
+                    <table>
+                        <tr>
+                            <td style="text-align: center"><label>Day</label></td>
+                            <td style="text-align: center"><label>Value</label></td>
+                            <td style="text-align: center"><label>Flag</label></td>
+                            <td style="text-align: center"><label>Period</label></td>
+                        </tr>
+                        <tr><td><label>21</label></td><td>{% render_field form.day21 style="width:60px" %}</td><td>{{ form.flag21 }}</td><td>{% render_field form.period21 style="width:60px" %}</td></tr>
+                        <tr><td><label>22</label></td><td>{% render_field form.day22 style="width:60px" %}</td><td>{{ form.flag22 }}</td><td>{% render_field form.period22 style="width:60px" %}</td></tr>
+                        <tr><td><label>23</label></td><td>{% render_field form.day23 style="width:60px" %}</td><td>{{ form.flag23 }}</td><td>{% render_field form.period23 style="width:60px" %}</td></tr>
+                        <tr><td><label>24</label></td><td>{% render_field form.day24 style="width:60px" %}</td><td>{{ form.flag24 }}</td><td>{% render_field form.period24 style="width:60px" %}</td></tr>
+                        <tr><td><label>25</label></td><td>{% render_field form.day25 style="width:60px" %}</td><td>{{ form.flag25 }}</td><td>{% render_field form.period25 style="width:60px" %}</td></tr>
+                        <tr><td><label>26</label></td><td>{% render_field form.day26 style="width:60px" %}</td><td>{{ form.flag26 }}</td><td>{% render_field form.period26 style="width:60px" %}</td></tr>
+                        <tr><td><label>27</label></td><td>{% render_field form.day27 style="width:60px" %}</td><td>{{ form.flag27 }}</td><td>{% render_field form.period27 style="width:60px" %}</td></tr>
+                        <tr><td><label>28</label></td><td>{% render_field form.day28 style="width:60px" %}</td><td>{{ form.flag28 }}</td><td>{% render_field form.period28 style="width:60px" %}</td></tr>
+                        <tr><td><label>29</label></td><td>{% render_field form.day29 style="width:60px" %}</td><td>{{ form.flag29 }}</td><td>{% render_field form.period29 style="width:60px" %}</td></tr>
+                        <tr><td><label>30</label></td><td>{% render_field form.day30 style="width:60px" %}</td><td>{{ form.flag30 }}</td><td>{% render_field form.period30 style="width:60px" %}</td></tr>
+                        <tr><td><label>31</label></td><td>{% render_field form.day31 style="width:60px" %}</td><td>{{ form.flag31 }}</td><td>{% render_field form.period31 style="width:60px" %}</td></tr>
+                        <tr><td colspan="4"><label>Total</label> &nbsp; {% render_field form.total style="width:60px" %}</td></tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>

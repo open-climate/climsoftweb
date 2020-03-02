@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block base_content %}
+
+    <div class="container whitepage rounded pagecontent">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <!--
+                <h4 class="text-center pt-3">Hourly Data</h4>{# form_hourly.Text - formHourly.vb #}
+                <br/>
+                -->
+
+                {% include selector %}
+
+                <br/><br/>
+
+                <div class="container border" style="position: relative">
+                    <div style="position:absolute; top:-20; left:10; padding:5px; background-color: white">
+                        {{ title }}
+                    </div>
+
+                    <div id="keyentryForm"></div>
+                    <div id="messageNoForm" class="text-center text-info pt-5 pb-5">
+                        Please select from the options above
+                    </div>
+
+                    <br/>
+
+                </div>
+
+                <br/><br/><br/>
+
+            </div>
+        </div>
+
+    </div>
+
+<script>
+    /* FIXME: replace window.onload with sekaizai. Add <form> tags and {% csrf_token %} */
+
+    window.onload = function() {
+
+        /* Load station options, then element options, then setup change event */
+        $( "#stationidChoice" ).load( "/metadata/station/select/", function() {
+            $( "#elementidChoice" ).load( "/metadata/element/select/", function() {
+                $(".choice").change( function() {
+                    var foundEmpty = false;
+                    var postData = {
+                        "csrfmiddlewaretoken": "{{ csrf_token }}",
+                        "model": "{{ model }}"
+                    };
+                    $('.choice').each(function (index){
+                        if (this.value.length === 0) {
+                            foundEmpty = true;
+                        }
+                        postData[this.id] = this.value;
+                    });
+                    if (foundEmpty) {
+                        $("#keyentryForm").hide();
+                        $("#messageNoForm").show();
+                    } else {
+                        $.post( "{% url reverse %}", postData, function(data) {
+                            // If successful, data will return the primary key to get the required form data
+                            $( "#keyentryForm" ).load( "/keyentry/{{ name }}/" + "1" + "/update/", function( html ) {
+                                // Only show if request is successful
+                                $("#keyentryForm").html(html).show();
+                                $("#messageNoForm").hide();
+                            });
+                        });
+                    }
+                });
+            });
+        });
+
+    };
+</script>
+
+{% endblock %}

@@ -127,6 +127,11 @@
                   margin-top: 2rem!important;
               }
               .mobile-hide { display: table-cell !important; }
+
+              .float-right-sometimes {
+                  /* Intend to float contents of first column to right only when there is a second column alongside */
+                  float: right;
+              }
           }
 
         /* Only center vertically once the device height > login box + navbar (240+46≈300) and width > 576 */
@@ -169,7 +174,7 @@
               Input
             </a>
             <div class="dropdown-menu" aria-labelledby="mnuInput">
-              <a class="dropdown-item" id="mnuInputKeyEntry" href="{% url 'keyentry:keyentry' %}">Key Entry</a>
+              <a class="dropdown-item" id="mnuInputKeyEntry" href="{% url 'keyentry:contents' %}">Key Entry</a>
             </div>
           </li>
           <li class="nav-item active dropdown">

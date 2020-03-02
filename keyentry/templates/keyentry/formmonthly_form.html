@@ -1,0 +1,41 @@
+{% load widget_tweaks %}
+
+<form>
+    {% csrf_token %}
+
+    {{ form.id }} {{ form.stationid.as_hidden }} {{ form.elementid.as_hidden }}
+    {{ form.yyyy.as_hidden }}
+
+
+    {{ form.non_field_errors }}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row pt-3">
+                <div class="col-sm-12">
+                    <table>
+                        <tr>
+                            <td style="text-align: center"><label>Month</label></td>
+                            <td style="text-align: center"><label>Value</label></td>
+                            <td style="text-align: center"><label>Flag</label></td>
+                            <td style="text-align: center"><label>Period</label></td>
+                        </tr>
+                        <tr><td><label>January</label></td><td>{% render_field form.mm_01 style="width:60px" %}</td><td>{{ form.flag01 }}</td><td>{% render_field form.period01 style="width:60px" %}</td></tr>
+                        <tr><td><label>February</label></td><td>{% render_field form.mm_02 style="width:60px" %}</td><td>{{ form.flag02 }}</td><td>{% render_field form.period02 style="width:60px" %}</td></tr>
+                        <tr><td><label>March</label></td><td>{% render_field form.mm_03 style="width:60px" %}</td><td>{{ form.flag03 }}</td><td>{% render_field form.period03 style="width:60px" %}</td></tr>
+                        <tr><td><label>April</label></td><td>{% render_field form.mm_04 style="width:60px" %}</td><td>{{ form.flag04 }}</td><td>{% render_field form.period04 style="width:60px" %}</td></tr>
+                        <tr><td><label>May</label></td><td>{% render_field form.mm_05 style="width:60px" %}</td><td>{{ form.flag05 }}</td><td>{% render_field form.period05 style="width:60px" %}</td></tr>
+                        <tr><td><label>June</label></td><td>{% render_field form.mm_06 style="width:60px" %}</td><td>{{ form.flag06 }}</td><td>{% render_field form.period06 style="width:60px" %}</td></tr>
+                        <tr><td><label>July</label></td><td>{% render_field form.mm_07 style="width:60px" %}</td><td>{{ form.flag07 }}</td><td>{% render_field form.period07 style="width:60px" %}</td></tr>
+                        <tr><td><label>August</label></td><td>{% render_field form.mm_08 style="width:60px" %}</td><td>{{ form.flag08 }}</td><td>{% render_field form.period08 style="width:60px" %}</td></tr>
+                        <tr><td><label>September</label></td><td>{% render_field form.mm_09 style="width:60px" %}</td><td>{{ form.flag09 }}</td><td>{% render_field form.period09 style="width:60px" %}</td></tr>
+                        <tr><td><label>October</label></td><td>{% render_field form.mm_10 style="width:60px" %}</td><td>{{ form.flag10 }}</td><td>{% render_field form.period10 style="width:60px" %}</td></tr>
+                        <tr><td><label>November</label></td><td>{% render_field form.mm_11 style="width:60px" %}</td><td>{{ form.flag11 }}</td><td>{% render_field form.period11 style="width:60px" %}</td></tr>
+                        <tr><td><label>December</label></td><td>{% render_field form.mm_12 style="width:60px" %}</td><td>{{ form.flag12 }}</td><td>{% render_field form.period12 style="width:60px" %}</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
