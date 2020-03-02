@@ -35,6 +35,7 @@ becomes NULL).
 """
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 
 # Defaults
@@ -59,7 +60,18 @@ VIS = [(METRES, 'metres'),('yards', 'yards')]
 FLAGS = [('', ''), ('M', 'M'), ('T', 'T'), ('E', 'E'), ('G', 'G'), ('D', 'D')]
 
 
-class FormHourly(models.Model):
+class KeyEntryModel(models.Model):
+    class Meta:
+        abstract = True
+
+    def save(self, *args, **kwargs):
+        if 'saved_by' in kwargs:
+            self.user = kwargs['saved_by']
+            self.signature = kwargs['saved_by'].username
+        super().save(*args, **kwargs)
+
+
+class FormHourly(KeyEntryModel):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
 
@@ -126,8 +138,11 @@ class FormHourly(models.Model):
         db_table = 'form_hourly'
         unique_together = (('stationid', 'elementid', 'yyyy', 'mm', 'dd'),)
 
+    def get_absolute_url(self):
+        return reverse('keyentry:form_hourly')
 
-class FormDaily2(models.Model):
+
+class FormDaily2(KeyEntryModel):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
 
@@ -246,8 +261,11 @@ class FormDaily2(models.Model):
         db_table = 'form_daily2'
         unique_together = (('stationid', 'elementid', 'yyyy', 'mm', 'hh'),)
 
+    def get_absolute_url(self):
+        return reverse('keyentry:form_daily2')
 
-class FormMonthly(models.Model):
+
+class FormMonthly(KeyEntryModel):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
 
@@ -297,3 +315,6 @@ class FormMonthly(models.Model):
         managed = True
         db_table = 'form_monthly'
         unique_together = (('stationid', 'elementid', 'yyyy'),)
+
+    def get_absolute_url(self):
+        return reverse('keyentry:form_monthly')

@@ -36,10 +36,6 @@ class KeyEntryView(LoginRequiredMixin, View):
         else:
             return HttpResponse('', content_type='text/plain')
 
-        # hourly: yearChoice, monthChoice, dayChoice
-        # daily: yearChoice, monthChoice, hourChoice
-        # monthly: yearChoice
-
 
 class KeyEntryUpdate(LoginRequiredMixin, UpdateView):
     """
@@ -48,30 +44,7 @@ class KeyEntryUpdate(LoginRequiredMixin, UpdateView):
 
     """
     pass
-    # note: self.kwargs = {'pk': '1111111'}
-
-    # form_class = UserForm
-    # template_name = 'members/user_update.html'
-    #model = Station
-    # the fields mentioned below become the entry rows in the update form
-    #fields = '__all__'
-    # success_url ="/"
-
-    # def get_object(self, queryset=None):
-    #     """
-    #     Override UpdateView's `get_object` method to create an empty
-    #     record if the record doesn't exist
-    #
-    #     """
-    #     # get the existing object or created a new one
-    #     obj, created = Worker.objects.get_or_create(mac=self.kwargs['mac'])
-    #
-    #     return obj
 
 
-# view for deleting a key entry form
 class KeyEntryDelete(LoginRequiredMixin, DeleteView):
     pass
-    #model = Station
-    # the delete button forwards to the url mentioned below.
-    #success_url = reverse_lazy('metadata:station-index')
