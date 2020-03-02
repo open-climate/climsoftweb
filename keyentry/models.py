@@ -26,7 +26,14 @@ Text fields in the original database were permitted to be NULL (in
 addition to just empty "" by default) therefore the CharField fields
 below currently have `null=True` created by `inspectdb`.
 
+A foreign key to the User table has been added to track the user who
+submits the form. The username will also be stored in the legacy
+`signature` field for consistency with Climsoft Desktop.
+If the user is deleted the key entry record gets disowned (the user
+becomes NULL).
+
 """
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -54,6 +61,8 @@ FLAGS = [('', ''), ('M', 'M'), ('T', 'T'), ('E', 'E'), ('G', 'G'), ('D', 'D')]
 
 class FormHourly(models.Model):
     id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+
     stationid = models.CharField(db_column='stationId', max_length=50)  # Field name made lowercase.
     elementid = models.IntegerField(db_column='elementId')  # Field name made lowercase.
     yyyy = models.IntegerField()
@@ -120,6 +129,8 @@ class FormHourly(models.Model):
 
 class FormDaily2(models.Model):
     id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+
     stationid = models.CharField(db_column='stationId', max_length=50)  # Field name made lowercase.
     elementid = models.IntegerField(db_column='elementId')  # Field name made lowercase.
     yyyy = models.IntegerField()
@@ -238,6 +249,8 @@ class FormDaily2(models.Model):
 
 class FormMonthly(models.Model):
     id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+
     stationid = models.CharField(db_column='stationId', max_length=255)  # Field name made lowercase.
     elementid = models.IntegerField(db_column='elementId')  # Field name made lowercase.
     yyyy = models.IntegerField()
