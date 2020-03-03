@@ -43,7 +43,12 @@ class KeyEntryUpdate(LoginRequiredMixin, UpdateView):
     for Read, Update and Create (only Delete is separate).
 
     """
-    pass
+    def form_valid(self, form):
+        """If the form is valid, save the associated model. Also add user's id and username"""
+        self.object = form.save()
+        self.object.user_id = self.request.user.id
+        self.object.signature = self.request.user.username
+        return super().form_valid(form)
 
 
 class KeyEntryDelete(LoginRequiredMixin, DeleteView):

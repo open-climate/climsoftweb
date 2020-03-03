@@ -64,12 +64,6 @@ class KeyEntryModel(models.Model):
     class Meta:
         abstract = True
 
-    def save(self, *args, **kwargs):
-        if 'saved_by' in kwargs:
-            self.user = kwargs['saved_by']
-            self.signature = kwargs['saved_by'].username
-        super().save(*args, **kwargs)
-
 
 class FormHourly(KeyEntryModel):
     id = models.AutoField(primary_key=True)

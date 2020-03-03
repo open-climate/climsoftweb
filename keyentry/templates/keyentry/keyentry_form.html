@@ -42,7 +42,6 @@
     /* FIXME: replace window.onload with sekaizai. Add <form> tags and {% csrf_token %} */
 
     window.onload = function() {
-
         /* Load station options, then element options, then setup change event */
         $( "#stationidChoice" ).load( "/metadata/station/select/", function() {
             $( "#elementidChoice" ).load( "/metadata/element/select/", function() {
@@ -64,7 +63,7 @@
                     } else {
                         $.post( "{% url reverse %}", postData, function(data) {
                             // If successful, data will return the primary key to get the required form data
-                            $( "#keyentryForm" ).load( "/keyentry/{{ name }}/" + "1" + "/update/", function( html ) {
+                            $( "#keyentryForm" ).load( "/keyentry/{{ name }}/" + data + "/update/", function( html ) {
                                 // Only show if request is successful
                                 $("#keyentryForm").html(html).show();
                                 $("#messageNoForm").hide();
