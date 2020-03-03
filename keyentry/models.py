@@ -269,7 +269,7 @@ class FormMonthly(KeyEntryModel):
     mm_01 = models.CharField(max_length=255, blank=True, null=True)
     mm_02 = models.CharField(max_length=255, blank=True, null=True)
     mm_03 = models.CharField(max_length=255, blank=True, null=True)
-    mm_04 = models.CharField(max_length=255)
+    mm_04 = models.CharField(max_length=255, blank=True, null=True)
     mm_05 = models.CharField(max_length=255, blank=True, null=True)
     mm_06 = models.CharField(max_length=255, blank=True, null=True)
     mm_07 = models.CharField(max_length=255, blank=True, null=True)
