@@ -1,6 +1,6 @@
 {% load widget_tweaks %}
 
-<form>
+<form action="{{ request.path }}" method="post">
     {% csrf_token %}
 
     {{ form.id }} {{ form.stationid.as_hidden }} {{ form.elementid.as_hidden }}
@@ -35,6 +35,12 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Submit</button>
         </div>
     </div>
 
