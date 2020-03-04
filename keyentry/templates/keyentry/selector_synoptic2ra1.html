@@ -1,0 +1,38 @@
+<!-- Station, element, year, month, day -->
+
+<div class="row pt-3">
+
+    <div class="col-sm-4">
+        <label>Station:</label><br/>
+        <select id="stationidChoice" class="choice form-control"><option value="">Loading ...</option></select>
+    </div>
+
+    <div class="col-sm-8">
+        <div style="width: 100%; display: table;">
+            <div style="display: inline">
+                <label>Year:</label>
+                <input id="yyyyChoice" class="choice form-control" type="number" min="1800" max="2020"
+                       style="display:inline-block; border-top-right-radius:0px; border-bottom-right-radius:0px;"/>
+            </div>
+            <div style="display: table-cell">
+                <label>Month:</label>
+                <input id="mmChoice" class="choice form-control" type="number" min="1" max="12"
+                       style="display:inline-block; border-radius:0px;"/>
+            </div>
+            <div style="display: table-cell">
+                <label>Day:</label>
+                <input id="ddChoice" class="choice form-control" type="number" min="1" max="31"
+                       style="display:inline-block; border-top-left-radius:0px; border-bottom-left-radius:0px;"/>
+            </div>
+
+            &nbsp;
+            <div style="display: table-cell">
+                <label>Hour:</label>
+                <input id="hhChoice" class="choice form-control" type="number" min="0" max="23"
+                       style="display:inline-block;"/>
+            </div>
+
+        </div>
+    </div>
+
+</div>

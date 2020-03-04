@@ -1,0 +1,46 @@
+{% load widget_tweaks %}
+
+<form action="{{ request.path }}" method="post">
+    {% csrf_token %}
+
+    {{ form.id }} {{ form.stationid.as_hidden }}
+    {{ form.yyyy.as_hidden }} {{ form.mm.as_hidden }} {{ form.dd.as_hidden }}
+    {{ form.hh.as_hidden }}
+
+    {{ form.non_field_errors }}
+
+    <div class="panel panel-default">
+
+        <div class="panel-body" style="clear: both">
+            <div class="row pt-1 pb-5">
+
+                {% for column in form.columns %}
+                <div class="col-sm-4 pt-5">
+                    <table>
+                        <tr>
+                            <td style="text-align: center"></td>
+                            <td style="text-align: center"><label>Value</label></td>
+                            <td style="text-align: center"><label>Flag</label></td>
+                        </tr>
+                        {% for field in column %}
+                        <tr>
+                            <td><label class="pr-1">{{ field.value.label }}</label></td>
+                            <td>{% render_field field.value style="width:60px" %}</td>
+                            <td>{% render_field field.flag style="width:60px" %}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+
+</form>

@@ -41,39 +41,45 @@
 <script>
     /* FIXME: replace window.onload with sekaizai. Add <form> tags and {% csrf_token %} */
 
-    window.onload = function() {
-        /* Load station options, then element options, then setup change event */
+    function initSelectors() {
         $( "#stationidChoice" ).load( "/metadata/station/select/", function() {
-            $( "#elementidChoice" ).load( "/metadata/element/select/", function() {
-                $(".choice").change( function() {
-                    var foundEmpty = false;
-                    var postData = {
-                        "csrfmiddlewaretoken": "{{ csrf_token }}",
-                        "model": "{{ model }}"
-                    };
-                    $('.choice').each(function (index){
-                        if (this.value.length === 0) {
-                            foundEmpty = true;
-                        }
-                        postData[this.id] = this.value;
-                    });
-                    if (foundEmpty) {
-                        $("#keyentryForm").hide();
-                        $("#messageNoForm").show();
-                    } else {
-                        $.post( "{% url reverse %}", postData, function(data) {
-                            // If successful, data will return the primary key to get the required form data
-                            $( "#keyentryForm" ).load( "/keyentry/{{ name }}/" + data + "/update/", function( html ) {
-                                // Only show if request is successful
-                                $("#keyentryForm").html(html).show();
-                                $("#messageNoForm").hide();
-                            });
-                        });
+            $(".choice").change( function() {
+                var foundEmpty = false;
+                var postData = {
+                    "csrfmiddlewaretoken": "{{ csrf_token }}",
+                    "model": "{{ model }}"
+                };
+                $('.choice').each(function (index){
+                    if (this.value.length === 0) {
+                        foundEmpty = true;
                     }
+                    postData[this.id] = this.value;
                 });
+                if (foundEmpty) {
+                    $("#keyentryForm").hide();
+                    $("#messageNoForm").show();
+                } else {
+                    $.post( "{% url reverse %}", postData, function(data) {
+                        // If successful, data will return the primary key to get the required form data
+                        $( "#keyentryForm" ).load( "/keyentry/{{ name }}/" + data + "/update/", function( html ) {
+                            // Only show if request is successful
+                            $("#keyentryForm").html(html).show();
+                            $("#messageNoForm").hide();
+                        });
+                    });
+                }
             });
         });
+    }
 
+    window.onload = function() {
+        /* Load station options, then element options, then setup change event */
+        if ($('#elementidChoice').length) {
+            /* Continue after successfully populating elements */
+            initSelectors();
+        } else {
+            initSelectors();
+        }
     };
 </script>
 

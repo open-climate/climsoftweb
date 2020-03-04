@@ -4,13 +4,14 @@ from django.shortcuts import render
 from django.views import generic, View
 from django.views.generic.edit import UpdateView, DeleteView
 
-from .models import FormHourly, FormDaily2, FormMonthly
+from .models import FormHourly, FormDaily2, FormMonthly, FormSynoptic2Ra1
 
 
 MODEL = {
     'FormHourly': FormHourly,
     'FormDaily2': FormDaily2,
     'FormMonthly': FormMonthly,
+    'FormSynoptic2Ra1': FormSynoptic2Ra1,
 }
 
 
