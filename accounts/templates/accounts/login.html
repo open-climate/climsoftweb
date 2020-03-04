@@ -28,9 +28,13 @@
                 <span class="input-group-text"><i class="fa fa-database"></i></span>
             </div>
             <select class="form-control form-control-lg">
-                {% for database in databases %}
-                    <option>{{ database }}</option>
-                {% endfor %}
+                {% if databases %}
+                    {% for database in databases %}
+                        <option>{{ database }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option>{{ settings.DEFAULT_DB_NAME }}</option>
+                {% endif %}
             </select>
           </div>
         </div>

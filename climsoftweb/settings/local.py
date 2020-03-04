@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CUSTOM_THEME = 'info'
+DEFAULT_DB_NAME = 'local_climsoftweb_db'
 SITE_NAME = 'Climsoft Web (local)'
 
 

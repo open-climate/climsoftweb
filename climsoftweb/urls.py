@@ -29,7 +29,7 @@ urlpatterns = [
     path('login/', name='login', view=LoginUser.as_view(
         authentication_form=LoginForm,
         template_name='accounts/login.html',
-        extra_context={'databases': ['inam_climsoftweb_db']},
+        # extra_context={'databases': ['inam_climsoftweb_db']},
     )),
 
     path('logout/', name='logout_user', view=LogoutUser.as_view(

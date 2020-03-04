@@ -6,3 +6,5 @@ from climsoftweb.settings.base import *
 DEBUG = False
 
 ALLOWED_HOSTS = ['inam.climsoft.org']
+
+DEFAULT_DB_NAME = 'inam_climsoftweb_db'

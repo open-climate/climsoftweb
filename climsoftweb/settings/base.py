@@ -148,6 +148,7 @@ LOGIN_REDIRECT_URL = '/'
 # ----------------------------------------------------------------------------
 
 CUSTOM_THEME = ''
+DEFAULT_DB_NAME = 'climsoftweb_db'
 SITE_NAME = 'Climsoft Web'
 
-SETTINGS_EXPORT = ['CUSTOM_THEME', 'SITE_NAME']
+SETTINGS_EXPORT = ['CUSTOM_THEME', 'DEFAULT_DB_NAME', 'SITE_NAME']
