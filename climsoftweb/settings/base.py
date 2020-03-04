@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_settings_export.settings_export',
             ],
         },
     },
@@ -142,3 +143,5 @@ STATICFILES_DIRS = [
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/'
+
+SETTINGS_EXPORT = []

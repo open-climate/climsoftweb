@@ -195,11 +195,11 @@
     {% endif %}
 
     <div class="dropdown" style="position: fixed; top: 0; right: 0;">
-        <button class="btn mt-2 mr-3" type="button" id="btnLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn mt-2 mr-3 {{ settings.CUSTOM_BTN }}" type="button" id="btnLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {% if user.is_authenticated %}
-                <i class="fa fa-user fa-1-5x text-darkslategrey"></i>
+                <i class="fa fa-user fa-1-5x {% if settings.CUSTOM_BTN %}text-white{% else %}text-darkslategrey{% endif %}"></i>
             {% else %}
-                <i class="fa fa-globe fa-1-5x text-darkslategrey"></i>
+                <i class="fa fa-globe fa-1-5x {% if settings.CUSTOM_BTN %}text-white{% else %}text-darkslategrey{% endif %}"></i>
             {% endif %}
         </button>
         {% if user.is_authenticated %}

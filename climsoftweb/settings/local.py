@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CUSTOM_BTN = 'btn-info'
+
+SETTINGS_EXPORT = ['CUSTOM_BTN']
+
 
 if CONNECT_MYSQL:
     # Example call for inspectdb:
