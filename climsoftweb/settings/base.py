@@ -144,4 +144,10 @@ LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/'
 
-SETTINGS_EXPORT = []
+
+# ----------------------------------------------------------------------------
+
+CUSTOM_THEME = ''
+SITE_NAME = 'Climsoft Web'
+
+SETTINGS_EXPORT = ['CUSTOM_THEME', 'SITE_NAME']

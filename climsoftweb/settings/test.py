@@ -8,5 +8,4 @@ DEBUG = False
 ALLOWED_HOSTS = ['test.climsoft.org']
 
 CUSTOM_THEME = 'danger'
-
-SETTINGS_EXPORT = ['CUSTOM_THEME']
+SITE_NAME = 'Climsoft Web (test)'

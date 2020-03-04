@@ -28,8 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CUSTOM_THEME = 'info'
-
-SETTINGS_EXPORT = ['CUSTOM_THEME']
+SITE_NAME = 'Climsoft Web (local)'
 
 
 if CONNECT_MYSQL:
