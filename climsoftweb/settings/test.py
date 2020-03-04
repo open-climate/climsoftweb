@@ -7,6 +7,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['test.climsoft.org']
 
-CUSTOM_BTN = 'btn-danger'
+CUSTOM_THEME = 'danger'
 
-SETTINGS_EXPORT = ['CUSTOM_BTN']
+SETTINGS_EXPORT = ['CUSTOM_THEME']

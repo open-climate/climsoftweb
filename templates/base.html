@@ -161,7 +161,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         {% endif %}
-        <a class="navbar-brand font-weight-bold" href="/">Climsoft Web</a>
+        <a class="navbar-brand text-{{ settings.CUSTOM_THEME }} font-weight-bold" href="/">Climsoft Web</a>
     </div>
 
     {% if user.is_authenticated %}
@@ -195,11 +195,11 @@
     {% endif %}
 
     <div class="dropdown" style="position: fixed; top: 0; right: 0;">
-        <button class="btn mt-2 mr-3 {{ settings.CUSTOM_BTN }}" type="button" id="btnLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn mt-2 mr-3 btn-{{ settings.CUSTOM_THEME }}" type="button" id="btnLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {% if user.is_authenticated %}
-                <i class="fa fa-user fa-1-5x {% if settings.CUSTOM_BTN %}text-white{% else %}text-darkslategrey{% endif %}"></i>
+                <i class="fa fa-user fa-1-5x {% if settings.CUSTOM_THEME %}text-white{% else %}text-darkslategrey{% endif %}"></i>
             {% else %}
-                <i class="fa fa-globe fa-1-5x {% if settings.CUSTOM_BTN %}text-white{% else %}text-darkslategrey{% endif %}"></i>
+                <i class="fa fa-globe fa-1-5x {% if settings.CUSTOM_THEME %}text-white{% else %}text-darkslategrey{% endif %}"></i>
             {% endif %}
         </button>
         {% if user.is_authenticated %}
