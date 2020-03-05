@@ -161,7 +161,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         {% endif %}
-        <a class="navbar-brand text-{{ settings.CUSTOM_THEME }} font-weight-bold" href="/">{{ settings.SITE_NAME }}</a>
+        <a class="navbar-brand text-{{ settings.CUSTOM_THEME }} font-weight-bold" href="/">Climsoft Web</a>
     </div>
 
     {% if user.is_authenticated %}
@@ -187,7 +187,7 @@
             <div class="dropdown-menu" aria-labelledby="mnuAdministration">
               <a class="dropdown-item" id="UserAdminToolStripMenuItem" href="{% url 'user_admin' %}">User Admin</a>
               <a class="dropdown-item" id="MetadataToolStripMenuItem" href="{% url 'metadata:metadata' %}">Metadata</a>
-              <a class="dropdown-item" id="PasswordToolStripMenuItem" style="color: #6d969e;" disabled_href="{% url 'change_password' %}">Change Password</a>
+              <a class="dropdown-item" id="PasswordToolStripMenuItem" style="color: #7d757d;" disabled_href="{% url 'change_password' %}">Change Password</a>
             </div>
           </li>
         </ul>

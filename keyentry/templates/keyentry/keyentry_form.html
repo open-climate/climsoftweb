@@ -76,7 +76,9 @@
         /* Load station options, then element options, then setup change event */
         if ($('#elementidChoice').length) {
             /* Continue after successfully populating elements */
-            initSelectors();
+            $( "#elementidChoice" ).load( "/metadata/element/select/", function() {
+                initSelectors();
+            });
         } else {
             initSelectors();
         }

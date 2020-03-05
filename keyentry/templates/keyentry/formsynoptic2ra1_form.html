@@ -7,6 +7,9 @@
     {{ form.yyyy.as_hidden }} {{ form.mm.as_hidden }} {{ form.dd.as_hidden }}
     {{ form.hh.as_hidden }}
 
+    {% render_field form.user value='{{ request.user.id }}' class+="d-none" %}
+    {% render_field form.signature value='{{ request.user.username }}' class+="d-none" %}
+
     {{ form.non_field_errors }}
 
     <div class="panel panel-default">
@@ -37,10 +40,11 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-success">Submit</button>
-        </div>
+    <div class="text-center pt-4">
+        <button type="submit" class="btn btn-light">Save</button>
+        <a href="#" class="btn btn-light ml-4 disabled" aria-disabled="true" role="button">Delete</a>
+        <a href="#" class="btn btn-light ml-4 disabled" aria-disabled="true" role="button">View</a>
+        <a href="{% url 'keyentry:contents' %}" class="btn btn-light ml-4" role="button">Close</a>
     </div>
 
 </form>
