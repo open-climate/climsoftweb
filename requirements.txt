@@ -1,4 +1,5 @@
 Django==2.2.7
-django-widget-tweaks
+django-sekizai
 django-settings-export
+django-widget-tweaks
 psycopg2

@@ -32,6 +32,14 @@ DEFAULT_DB_NAME = 'local_climsoftweb_db'
 SITE_NAME = 'Climsoft Web (local)'
 
 
+# You should include the Debug Toolbar middleware as early as possible in the list.
+# However, it must come after any other middleware that encodes the response’s content, such as GZipMiddleware.
+MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware'] + MIDDLEWARE
+INSTALLED_APPS += ['debug_toolbar']
+# INTERNAL_IPS = ['127.0.0.1']
+DEBUG_TOOLBAR_CONFIG = { 'SHOW_TOOLBAR_CALLBACK': lambda x: True }
+
+
 if CONNECT_MYSQL:
     # Example call for inspectdb:
     # /webapps/climsoftweb/bin/python3 manage.py inspectdb --settings=climsoftweb.settings.local > climsoft_models.py

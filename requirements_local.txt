@@ -1,4 +1,5 @@
 
+django-debug-toolbar
 ## pymysql  # https://stackoverflow.com/a/49893339/
 
 # Include the requirements.txt requirements file
